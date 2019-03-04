@@ -1,0 +1,29 @@
+<div class="container search-box">
+    <mat-card class="example-card cardLayout">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Search Orders</mat-card-title>
+          </mat-card-header>
+          <mat-card-content class="content-center">
+            <form class="institution-create-container centered-content" (submit)="getDetails(customerDataGroup)" [formGroup]="customerDataGroup">
+            <div>
+            <mat-form-field>
+              <mat-select placeholder="Customer List" formControlName="customerName" required>
+                <mat-option *ngFor="let user of users" [value]="user.id">
+                  {{user.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+              <label for="exampleInputEmail1">Start and end date</label>
+              <input type="text" name="daterange" matInput ngxDaterangepickerMd formControlName="date"/>
+            </mat-form-field>
+            <br>
+            <button mat-raised-button color="primary" [disabled]="!customerDataGroup.valid">Search</button>
+            </div>
+            </form>
+          </mat-card-content>
+    </mat-card>
+</div>
+
